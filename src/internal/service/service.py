@@ -1,5 +1,3 @@
-from copy import deepcopy 
-
 from .base_service import BaseService
 from ..regexp.base_regexp import BaseRegExp
 
@@ -19,22 +17,42 @@ class Service(BaseService):
 
         for category_reg_exp in category_reg_exps:
             if not isinstance(category_reg_exp, BaseRegExp):
-                raise ValueError( "Service accepts only objects inherited from BaseGerExp")
+                raise ValueError( "Service accepts only objects inherited from BaseRegExp")
             self._category_reg_exps.append(category_reg_exp)
     
-    def get_category(self, text):
-
-        max_score = -1
-        category = self.DEFAULT_CATEGORY
-
-        text_in_lowercase = self.lower()
+    def _prepared_text(self, text):
+        
+        if text is None:
+            return ""
+        
+        text_in_lowercase = text.lower()
         prepared_text = text_in_lowercase.replace("ё","е")
+        
+        return prepared_text
+    
+    def _is_better_match(self, current_match, best_match):
 
+        return (
+            current_match["score"],
+            current_match["matched_words_count"],
+            current_match["matched_weights"],
+        ) > (
+            best_match["score"],
+            best_match["matched_words_count"],
+            best_match["matched_weights"],
+        )
+    
+    def get_category(self, text):
+        
+        prepared_text = self._prepared_text(text)
+
+        best_match = {"category": self.DEFAULT_CATEGORY, "score":0, "matched_words_count":0,"matched_weights":[]}
+        
         for category_reg_exp in self._category_reg_exps:
-            score = category_reg_exp.get_match(prepared_text)
+            current_match = category_reg_exp.get_match(prepared_text)
 
-            if score > max_score:
-                category = category_reg_exp.category
-                max_score = score
+            if self._is_better_match(current_match, best_match):
+                best_match = current_match
 
-        return category 
+        return best_match["category"]
+        
