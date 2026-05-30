@@ -12,3 +12,12 @@ class Service(BaseService):
     @property
     def category_reg_exps(self):
         return self._category_reg_exps
+    
+    @category_reg_exps.setter
+    def category_reg_exps(self, category_reg_exps):
+        self._category_reg_exps = []
+
+        for category_reg_exp in category_reg_exps:
+            if not isinstance(category_reg_exp, BaseRegExp):
+                raise ValueError( "Service accepts only objects inherited from BaseGerExp")
+            self._category_reg_exps.append(category_reg_exp)
