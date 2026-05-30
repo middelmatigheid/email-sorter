@@ -1,6 +1,3 @@
 print("Hello world")
-print("Hello again")
-print("Hello third time")
-print("Hello fourth time")
-print("Hello fifth time")
+print("12345677")
 print("Hello six-seventh time")
