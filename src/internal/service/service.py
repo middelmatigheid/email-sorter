@@ -21,3 +21,20 @@ class Service(BaseService):
             if not isinstance(category_reg_exp, BaseRegExp):
                 raise ValueError( "Service accepts only objects inherited from BaseGerExp")
             self._category_reg_exps.append(category_reg_exp)
+    
+    def get_category(self, text):
+
+        max_score = -1
+        category = self.DEFAULT_CATEGORY
+
+        text_in_lowercase = self.lower()
+        prepared_text = text_in_lowercase.replace("ё","е")
+
+        for category_reg_exp in self._category_reg_exps:
+            score = category_reg_exp.get_match(prepared_text)
+
+            if score > max_score:
+                category = category_reg_exp.category
+                max_score = score
+
+        return category 
