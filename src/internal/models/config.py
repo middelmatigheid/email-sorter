@@ -2,9 +2,10 @@ from ..models.category import Category
 from copy import deepcopy
 
 class Config:
-    def __init__(self, input_folder, output_folder, categories):
+    def __init__(self, input_folder, output_folder, logs_file, categories):
         self.input_folder = input_folder
         self.output_folder = output_folder
+        self.logs_file = logs_file
         self.categories = categories
 
     @property
