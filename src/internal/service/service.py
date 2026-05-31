@@ -49,7 +49,7 @@ class Service(BaseService):
         for category_reg_exp in self._category_reg_exps:
             
             value, words_count = category_reg_exp.get_match(prepared_text)
-            current_match = {"category": category_reg_exp.get_match(prepared_text),
+            current_match = {"category": category_reg_exp.category,
                              "score": value,
                              "matched_words_count":words_count}
 
