@@ -34,25 +34,28 @@ class Service(BaseService):
 
         return (
             current_match["score"],
-            current_match["matched_words_count"],
-            current_match["matched_weights"],
+            -current_match["matched_words_count"]
         ) > (
             best_match["score"],
-            best_match["matched_words_count"],
-            best_match["matched_weights"],
+            -best_match["matched_words_count"]
         )
     
     def get_category(self, text):
         
         prepared_text = self._prepared_text(text)
 
-        best_match = {"category": self.DEFAULT_CATEGORY, "score":0, "matched_words_count":0,"matched_weights":[]}
+        best_match = {"category": self.DEFAULT_CATEGORY, "score":0, "matched_words_count":0}
         
         for category_reg_exp in self._category_reg_exps:
-            current_match = category_reg_exp.get_match(prepared_text)
+            
+            value, words_count = category_reg_exp.get_match(prepared_text)
+            current_match = {"category": category_reg_exp.get_match(prepared_text),
+                             "score": value,
+                             "matched_words_count":words_count}
 
             if self._is_better_match(current_match, best_match):
                 best_match = current_match
 
         return best_match["category"]
+    
         
