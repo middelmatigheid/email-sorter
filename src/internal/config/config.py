@@ -4,7 +4,7 @@ from ..models.config import Config
 from ..models.category import Category
 from ..models.word import Word
 
-def get_config(path):
+def get_config(path, logs):
     if path.split(".")[-1] != "yaml":
         raise ValueError("Config should have .yaml extension")
     elif not os.path.exists(path):
@@ -23,7 +23,14 @@ def get_config(path):
     else:
         output_folder = settings["output_folder"]
 
-    if "logs_file" in settings:
+    if "logs_level" not in settings:
+        raise KeyError("Param 'logs_level' should be specified")
+    else:
+        logs_level = settings["logs_level"]
+
+    if "logs_file" not in settings:
+        raise KeyError("Param 'logs_file' should be specified")
+    else:
         logs_file = settings["logs_file"]
 
     if "categories" not in settings:
@@ -43,5 +50,5 @@ def get_config(path):
             category = Category(name, words)
             categories.append(category)
     
-    config = Config(input_folder, output_folder, categories)
+    config = Config(input_folder, output_folder, logs_level, logs_file, categories)
     return config
