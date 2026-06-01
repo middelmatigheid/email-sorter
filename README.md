@@ -1,7 +1,7 @@
 # EMAIL SORTER
 
 Our group has been given a task to create an email sorter. Emails are represented as .txt files, but you can also get
-some another file format as input, and your final task is to sort them however you think is correct.
+some another file format as input, and your final task is to sort them however you think is correct
 
 So we decided to split all email in 7 groups
 - Spam
@@ -15,22 +15,22 @@ So we decided to split all email in 7 groups
 To identify an email from first five groups we can search for special keywords, list of which you can see in config.yaml
 file, you can always change the config by adding your own categories and keywords. To find keywords regular expressions 
 were used. Files with format different from .txt go to **Not an email** folder. And files without any key word are being 
-moved to **Unknown category**.
+moved to **Unknown category**
 
 The sorter has an input and output folders, each of one can be specified in config. To sort files, move them to input folder.
 The files would be sorted into different folders in the output folder. You can choose to run your script once ot keep it
-running to sort your emails in real time.
+running to sort your emails in real time
 
 To check an email for keyword, regular expressions for each category are being used. Each keyword has its own weight. The more total sum of
 found keywords, the more likely the email belongs to this category. If an email has same total sum in two different categories,
 the category is being identified by amount of word met. If the sum stays the same, the lower your amount of words, the higher
-score per found word, the more likely it is the right category.
+score per found word, the more likely it is the right category
 
 An additional logging is being provided. The info about moving files and errors are being written to the logs. It the logs
 are enabled. You can specify logs' level and file in configuration. The logs are being written to the console and the file at
-the same time.
+the same time
 
-Total statistic is shown at the end. You can see total amount of files proceeded and amount of emails in each category.
+Total statistic is shown at the end. You can see total amount of files proceeded and amount of emails in each category
 
 # Downloading and running the script
 
