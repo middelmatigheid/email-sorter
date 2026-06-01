@@ -29,14 +29,14 @@ class Logger(BaseLogger):
             message = f"ERROR ({datetime.now()}): {text}"
             if self.file:
                 with open(self.file, "a", encoding="utf-8") as file:
-                    file.write(msg)
+                    file.write(message)
                     file.write("\n")
-            print(msg)
+            print(message)
 
     def stats(self, text):
         message = f"\n{'=' * 20}\n\nSTATS ({datetime.now()})\n{text}\n\n{'=' * 20}\n"
         if self.file:
             with open(self.file, "a", encoding="utf-8") as file:
-                file.write(msg)
+                file.write(message)
                 file.write("\n")
-        print(msg)
+        print(message)
