@@ -1,195 +1,158 @@
 input_folder: inbox
 output_folder: outbox
 
+logs_level: error
 logs_file: logs.txt
 
 categories:
-  - Авария:
-    - word: не отвечает
-      weight: 1
-    - word: ошибка 500
-      weight: 1
-    - word: работа полностью остановлена
-      weight: 1
-    - word: массовый сбой
-      weight: 1
-    - word: критичный инцидент
-      weight: 1
-    - word: уже * минут
-      weight: 1
-    - word: не работает у всего отдела
-      weight: 1
-    - word: срочно проверить
-      weight: 1
-    - word: недоступен
-      weight: 1
-    - word: второй запрос
-      weight: 1
-    - word: повторно
-      weight: 1
-
-  - Сбой:
-    - word: не работает
-      weight: 1
-    - word: ошибка
-      weight: 1
-    - word: зависает
-      weight: 1
-    - word: не открывает файлы
-      weight: 1
-    - word: не запускается
-      weight: 1
-    - word: не устанавливается
-      weight: 1
-    - word: не включается
-      weight: 1
-    - word: после обновления
-      weight: 1
-    - word: переустановка не помогла
-      weight: 1
-    - word: раньше всё работало
-      weight: 1
-
-  - Запрос доступа:
-    - word: выдать доступ
-      weight: 1
-    - word: подготовить рабочее место
-      weight: 1
-    - word: доступы для нового сотрудника
-      weight: 1
-    - word: нужны права
-      weight: 1
-    - word: прошу восстановить доступ
-      weight: 1
-    - word: перевод в отдел
-      weight: 1
-    - word: пропал доступ
-      weight: 1
-    - word: временный доступ
-      weight: 1
-    - word: чтение и редактирование
-      weight: 1
-
-  - Замена оборудования:
-    - word: замена
-      weight: 1
-    - word: диагностика
-      weight: 1
-    - word: не определяется системой
-      weight: 1
-    - word: сломался
-      weight: 1
-    - word: не включается
-      weight: 1
-    - word: издаёт посторонние звуки
-      weight: 1
-    - word: ноутбук
-      weight: 1
-    - word: гарнитура
-      weight: 1
-    - word: принтер
-      weight: 1
-    - word: мышь
-      weight: 1
-      
-  - Документы:
-    - word: cчёт
-      weight: 1
-    - word: акт
-      weight: 1
-    - word: договор
-      weight: 1
-    - word: инструкция
-      weight: 1
-    - word: согласовать
-      weight: 1
-    - word: закрывающие документы
-      weight: 1
-    - word: версия
-      weight: 1
-    - word: правки
-      weight: 1
-
-  - Плановые работы:
-    - word: дайджест
-      weight: 1
-    - word: healthcheck
-      weight: 1
-    - word: alert
-      weight: 1
-    - word: отчёт мониторинга
-      weight: 1
-    - word: upgrade
-      weight: 1
-    - word: cpu usage
-      weight: 1
-    - word: disk usage
-      weight: 1
-
   - Спам:
-    - word: вы выиграли
-      weight: 1
-    - word: подозрительный вход
-      weight: 1
-    - word: подтвердите личность
-      weight: 1
-    - word: введите логин и пароль
-      weight: 1
+    - word: банковской карты
+      weight: 5
     - word: скидка
+      weight: 5
+    - word: верификация
+      weight: 4
+    - word: розыгрыш
+      weight: 4
+    - word: победителем
+      weight: 4
+    - word: приз
+      weight: 4
+    - word: exclusive offer
+      weight: 4
+    - word: limited time
+      weight: 4
+    - word: аккаунт
+      weight: 2
+    - word: логин
+      weight: 2
+    - word: пароль
+      weight: 2
+    - word: введите
       weight: 1
-    - word: эксклюзивная акция
-      weight: 1
-    - word: http
-      weight: 1
-    - word: ваш аккаунт будет заблокирован
+    - word: ссылке
       weight: 1
 
-  - Кадры:
+  - Сбои и инциденты:
+    - word: ошибка 500
+      weight: 5
+    - word: ремонт
+      weight: 5
+    - word: работа остановлена
+      weight: 5
+    - word: не отвечает
+      weight: 5
+    - word: недоступен
+      weight: 5
+    - word: диагностику
+      weight: 5
+    - word: не работает
+      weight: 4
+    - word: работало
+      weight: 4
+    - word: инцидент
+      weight: 4
+    - word: перестал
+      weight: 4
+    - word: неисправность
+      weight: 4
+    - word: зависает
+      weight: 3
+    - word: сбой
+      weight: 3
+    - word: падает
+      weight: 3
+    - word: сломался
+      weight: 3
+    - word: не запускается
+      weight: 3
+    - word: ошибка
+      weight: 2
+    - word: healthcheck
+      weight: 2
+    - word: авторизации
+      weight: 2
+
+  - Запросы на доступ:
+    - word: запрос доступа
+      weight: 5
+    - word: нужны права
+      weight: 5
+    - word: только чтение
+      weight: 5
+    - word: vpn
+      weight: 4
+    - word: gitlab
+      weight: 4
+    - word: confluence
+      weight: 4
+    - word: восстановить
+      weight: 3
+    - word: временного
+      weight: 3
+    - word: облачное хранилище
+      weight: 3
+    - word: система согласования
+      weight: 3
+    - word: согласование
+      weight: 3
+    - word: доступ
+      weight: 2
+    - word: доступа
+      weight: 2
+    - word: права
+      weight: 2
+    - word: почта
+      weight: 1
+
+  - Кадровые вопросы:
+    - word: больничный лист
+      weight: 5
     - word: отпуск
-      weight: 1
-    - word: больничный лист 
-      weight: 1
-    - word: период нетрудоспособности
-      weight: 1
-    - word: согласовать отпуск
-      weight: 1
-    - word: направляю больничный
-      weight: 1
+      weight: 5
+    - word: сотрудника
+      weight: 4
+    - word: больничный
+      weight: 4
+    - word: рабочее место
+      weight: 4
+    - word: подготовить
+      weight: 2
 
-  - Встреча:
+  - Документы и уведомления:
+    - word: закрывающие документы
+      weight: 5
+    - word: статус задач
+      weight: 5
+    - word: договор
+      weight: 4
+    - word: акт
+      weight: 4
     - word: созвон
-      weight: 1
+      weight: 4
+    - word: техническое задание
+      weight: 4
+    - word: финальная версия
+      weight: 4
+    - word: плановый отчет
+      weight: 4
+    - word: дайджест
+      weight: 3
     - word: демо
-      weight: 1
-    - word: обсудить статус задач
-      weight: 1
-    - word: встретиться по отчёту
-      weight: 1
-
-  - Клиент:
-    - word: клиент
-      weight: 1
-    - word: партнёр
-      weight: 1
-    - word: жалоба
-      weight: 1
-    - word: внешний пользователь
-      weight: 1
-    - word: api
-      weight: 1
-    - word: ошибка при подключении
-      weight: 1
-    - word: не может зарегистрироваться
-      weight: 1
-    - word: запрос от внешнего пользователя
-      weight: 1
-
-  - Переадресовано:
-    - word: forwarded message
-      weight: 1
-    - word: перенаправляю
-      weight: 1
-    - word: не знаю, к кому обращаться
-      weight: 1
-    - word: fwd
-      weight: 1
+      weight: 3
+    - word: мониторинга
+      weight: 3
+    - word: правки
+      weight: 3
+    - word: обновления корпоративного портала
+      weight: 3
+    - word: документы
+      weight: 2
+    - word: обсудить
+      weight: 2
+    - word: счёт
+      weight: 2
+    - word: оплата
+      weight: 2
+    - word: перенос созвона
+      weight: 2
