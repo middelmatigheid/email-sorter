@@ -77,25 +77,25 @@ pip install -r requirements.txt
 Run the command below
 
 ```bash
-python main.py
+python src/main.py
 ```
 
 You can add flag **--loop** for keep running the script until stopped for sorting your email in real time
 
 ```bash
-python main.py --loop
+python src/main.py --loop
 ```
 
 You can add flag **--logs** for writing the logs
 
 ```bash
-python main.py --logs
+python src/main.py --logs
 ```
 
 Or you can add both
 
 ```bash
-python main.py --loop --logs
+python src/main.py --loop --logs
 ```
 
 ### 5. Run tests
