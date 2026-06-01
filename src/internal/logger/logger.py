@@ -25,15 +25,15 @@ class Logger(BaseLogger):
 
     def error(self, text):
         if self.level <= 1:
-            msg = f"ERROR ({datetime.now()}): {text}"
+            message = f"ERROR ({datetime.now()}): {text}"
             if self.file:
                 with open(self.file, "a", encoding="utf-8") as file:
-                    file.write(msg)
-            print(msg)
+                    file.write(message)
+            print(message)
 
     def stats(self, text):
-        msg = f"\n{'=' * 20}\n\nSTATS ({datetime.now()})\n{text}\n\n{'=' * 20}\n"
+        message = f"\n{'=' * 20}\n\nSTATS ({datetime.now()})\n{text}\n\n{'=' * 20}\n"
         if self.file:
             with open(self.file, "a", encoding="utf-8") as file:
-                file.write(msg)
-        print(msg)
+                file.write(message)
+        print(message)
