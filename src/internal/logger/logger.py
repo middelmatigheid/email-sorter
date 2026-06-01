@@ -21,6 +21,7 @@ class Logger(BaseLogger):
             if self.file:
                 with open(self.file, "a", encoding="utf-8") as file:
                     file.write(message)
+                    file.write("\n")
             print(message)
 
     def error(self, text):
@@ -29,6 +30,7 @@ class Logger(BaseLogger):
             if self.file:
                 with open(self.file, "a", encoding="utf-8") as file:
                     file.write(msg)
+                    file.write("\n")
             print(msg)
 
     def stats(self, text):
@@ -36,4 +38,5 @@ class Logger(BaseLogger):
         if self.file:
             with open(self.file, "a", encoding="utf-8") as file:
                 file.write(msg)
+                file.write("\n")
         print(msg)
