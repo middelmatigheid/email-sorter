@@ -138,6 +138,7 @@ email-sorter/
 │   ├── regexp_test.py
 │   └── service_test.py
 ├── config.yaml                 # Config
+├── requirements.txt            
 └── pytest.ini                  # Config for pytest
 ```
 
