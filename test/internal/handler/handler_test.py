@@ -1,10 +1,10 @@
 import os
 import shutil
 import pytest
-from internal.service.base_service import BaseService
-from internal.metrics.base_metrics import BaseMetrics
-from internal.logger.base_logger import BaseLogger
-from internal.handler.handler import Handler
+from src.internal.service.base_service import BaseService
+from src.internal.metrics.base_metrics import BaseMetrics
+from src.internal.logger.base_logger import BaseLogger
+from src.internal.handler.handler import Handler
 
 class MockService(BaseService):
     def __init__(self):
@@ -31,6 +31,9 @@ class MockLogger(BaseLogger):
         pass
 
     def error(self, text):
+        pass
+
+    def stats(self):
         pass
 
 def test_not_service():

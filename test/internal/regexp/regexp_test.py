@@ -1,7 +1,7 @@
 import pytest
-from internal.models.word import Word
-from internal.models.category import Category
-from internal.regexp.regexp import RegExp
+from src.internal.models.word import Word
+from src.internal.models.category import Category
+from src.internal.regexp.regexp import RegExp
 
 def test_not_category():
     with pytest.raises(ValueError, match="RegExp's category should implement class Category"):
